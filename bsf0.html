@@ -4,7 +4,7 @@
         <iframe name="BlankPage" style="visibility:hidden;"></iframe>
 
         <!-- Update any "..." fields accordingly! -->
-        <form action="https://cs4440.eng.utah.edu/project3/username=attacker&password=l33th4x"
+        <form action="https://cs4440.eng.utah.edu/project3/login"
               target="BlankPage"
               name="EvilPayload"
               method="POST">
@@ -13,6 +13,10 @@
             <input name="xssdefense" value="4" type="hidden">
             <input name="username" value="attacker" type="hidden"/>
             <input name="password" value="l33th4x" type="hidden"/>
+
+            <!----------------------------
+            | Your attack code goes here! 
+            ----------------------------->
         </form>
 
         <!-- Launch the attack! (leave as-is) -->
